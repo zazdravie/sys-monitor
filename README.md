@@ -18,5 +18,8 @@
 
 Просто скопируйте и вставьте эту команду в терминал:
 
+## 🚀 Быстрая установка
+
 ```bash
 curl -sSL [https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh](https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh) | bash
+
