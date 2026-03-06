@@ -21,5 +21,7 @@
 ## 🚀 Быстрая установка
 
 ```bash
-curl -sSL [https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh](https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh) | bash
+curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh | bash
+```
+
 
