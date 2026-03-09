@@ -22,7 +22,7 @@
 Установите и настройте всё одной командой:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/KimberlyWay/sys-monitor/main/install.sh | bash
 
 ```
 
@@ -47,6 +47,7 @@ curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.s
 
 * **ОС:** Linux или WSL2 (Ubuntu, Debian, CentOS и др.).
 * **Инструменты:** `bash`, `awk`, `docker`, `curl`.
+
 
 
 
