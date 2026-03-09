@@ -3,51 +3,51 @@
 > Минималистичный и мощный мониторинг ресурсов для Linux/WSL.
 
 <details>
-  <summary>📸 Посмотреть скриншот интерфейса</summary>
-  <br>
-  <img src="https://github.com/zazdravie/sys-monitor/blob/main/screenshot.png?raw=true" alt="System Monitor Screenshot" width="800">
-</details>
+<summary>📸 Посмотреть скриншот интерфейса</summary>
 
+
+
+
+
+<img src="[https://raw.githubusercontent.com/zazdravie/sys-monitor/main/screenshot.png](https://www.google.com/search?q=https://raw.githubusercontent.com/zazdravie/sys-monitor/main/screenshot.png)" alt="System Monitor Screenshot" width="800">
+</details>
 
 ## 🔥 Ключевые особенности
 
-* **🐳 Docker Ready:** В реальном времени отображает количество активных (`act.`) контейнеров.
-* **⚡ Мгновенный доступ:** После установки доступен из любой директории по одной букве — `s`.
-* **🏠 SSH Autostart:** Умеет автоматически показывать сводку системы при каждом входе на сервер.
-* **🛠 Native Bash:** Работает на чистом Bash без внешних зависимостей (Python/Node/Go не нужны).
-* **🖥 Компактный UI:** Вся важная инфо (CPU, RAM, Disk, Network, Docker) на одном экране.
+* **🐳 Docker Ready:** Мгновенное отображение количества активных (`act.`) контейнеров.
+* **🛡 Service Watchdog:** Визуальный статус критических служб (например, **UFW**, **Caddy**, **SSH**) с цветовой индикацией.
+* **📦 Update Notifier:** Информирует о наличии доступных пакетов для обновления системы.
+* **⚡ Мгновенный доступ:** После установки вызывается одной буквой — `s`.
+* **🏠 SSH Autostart:** Автоматический вывод сводки при входе на сервер.
+* **🛠 Zero Dependencies:** Чистый Bash, не требует Python, Node.js или Go.
 
-### 📥 Быстрая установка
+## 📥 Быстрая установка
+
+Установите и настройте всё одной командой:
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh | bash
+
 ```
 
 ## ⌨️ Команды управления
 
-После установки используйте следующие флаги:
-
 | Команда | Описание |
 | --- | --- |
-| `s` | Показать текущую сводку ресурсов и статус Docker |
-| `s --autostart` | Включить показ монитора автоматически при входе по SSH |
-| `s --autostart-remove` | Отключить автоматический запуск |
-| `s --uninstall` | Полностью удалить скрипт и его компоненты из системы |
+| `s` | Показать текущую сводку (CPU, RAM, Docker, Network). |
+| `s --autostart` | Включить автоматический запуск монитора при входе по SSH. |
+| `s --autostart-remove` | Отключить автозапуск. |
+| `s --uninstall` | Полностью удалить скрипт из системы. |
 
 ## 📊 Что отображается в сводке?
 
-* **System:** Версия ядра, аптайм и Load Average.
-* **Resources:** Точный расход RAM (с учетом кэша) и загрузка CPU.
-* **Storage:** Список всех дисков и их заполненность.
-* **Network:** Статус сетевых интерфейсов и IP.
-* **Containers:** Счетчик запущенных Docker-контейнеров.
+* **System & Location:** Имя хоста, ОС, аптайм, локальный IP и даже геолокация сервера.
+* **Resources:** Load Average, детальный расход RAM и загрузка CPU.
+* **Storage:** Наглядные прогресс-бары заполненности дисков.
+* **Activity:** Активность сети (Download/Upload) и статус Docker.
+* **Sessions:** Проверка наличия активных сессий **Tmux**.
 
 ## 🛠 Требования
 
-* **ОС:** Linux или WSL2 (Ubuntu, Debian, CentOS и др.)
-* **Права:** Для `--install` и `--autostart` могут потребоваться права `sudo`.
-* **Инструменты:** `bash`, `awk`, `docker` (для отображения статуса контейнеров).
-
----
-
-
+* **ОС:** Linux или WSL2 (Ubuntu, Debian, CentOS и др.).
+* **Инструменты:** `bash`, `awk`, `docker`, `curl`.
