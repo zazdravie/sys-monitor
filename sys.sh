@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# --- ПАРАМЕТРЫ ---
 BIN_PATH="/usr/local/bin/s"
 
-# Функция для красивого вывода (как в твоем старом скрипте)
 msg_ok() { echo -e "\033[0;32m[+] $1\033[0m"; }
 msg_info() { echo -e "\033[0;34m[ℹ] $1\033[0m"; }
 msg_warn() { echo -e "\033[1;33m[!] $1\033[0m"; }
 msg_err() { echo -e "\033[0;31m[-] $1\033[0m"; }
 
-# --- УПРАВЛЕНИЕ И ФЛАГИ ---
 if [[ "$1" == "--install" ]]; then
     sudo cp "$0" "$BIN_PATH"
     sudo chmod +x "$BIN_PATH"
@@ -28,39 +25,32 @@ case "$1" in
         exit 0
         ;;
     --autostart-remove)
-        # Исправлено: добавлена обратная косая черта \| для корректной работы sed
         sed -i "\|$BIN_PATH|d" ~/.bashrc
         msg_err "Автозапуск отключен."
         exit 0
         ;;
     --uninstall)
         sudo rm -f "$BIN_PATH"
-        # Исправлено: добавлена обратная косая черта \| для корректной работы sed
         sed -i "\|$BIN_PATH|d" ~/.bashrc
         msg_ok "Готово. Команда 's' удалена. Откройте новый терминал, чтобы изменения вступили в силу."
         exit 0
         ;;
 esac
 
-# --- Цвета ---
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-# --- Параметры верстки ---
 CONTENT_WIDTH=50 
 
-# --- Данные системы ---
 USER_HOST="$(whoami)@$(hostname)"
 OS_INFO=$(lsb_release -ds 2>/dev/null || cat /etc/os-release | grep "PRETTY_NAME" | cut -d'"' -f2)
 IP_ADDR=$(hostname -I | awk '{print $1}')
 UPTIME=$(uptime -p | sed 's/up //')
 LOAD_AVG=$(cat /proc/loadavg | awk '{print $1", "$2", "$3}')
 
-# --- Локация ---
-# Если сервер в Швеции (как на скринах), подставим флаг или название
 COUNTRY_CODE=$(curl -s --connect-timeout 2 https://ipinfo.io/country)
 case "$COUNTRY_CODE" in
     "SE") COUNTRY="Sweden" ;;
@@ -70,7 +60,6 @@ case "$COUNTRY_CODE" in
     *) COUNTRY=$(curl -s --connect-timeout 2 "http://ip-api.com/line?fields=country" | head -n 1) ;;
 esac
 
-# --- Сеть ---
 format_speed() {
     local kb=$1
     if [ "$kb" -lt 1024 ]; then echo "${kb} KB/s"; else echo "$(awk "BEGIN {printf \"%.1f\", $kb/1024}") MB/s"; fi
@@ -82,7 +71,6 @@ sleep 1
 R2=$(cat /sys/class/net/$INTERFACE/statistics/rx_bytes); T2=$(cat /sys/class/net/$INTERFACE/statistics/tx_bytes)
 NET_OUT="↓$(format_speed $(( (R2-R1)/1024 ))) ↑$(format_speed $(( (T2-T1)/1024 )))"
 
-# --- Ресурсы ---
 MEM_TOTAL=$(grep MemTotal /proc/meminfo | awk '{print int($2/1024)}')
 MEM_FREE_RAW=$(grep MemAvailable /proc/meminfo | awk '{print int($2/1024)}')
 [ -z "$MEM_FREE_RAW" ] && MEM_FREE_RAW=$(free -m | awk '/Mem:/ {print $7}')
@@ -92,7 +80,6 @@ MEM_PERC=$((MEM_USED * 100 / MEM_TOTAL))
 DISK_USED=$(df -h / | awk 'NR==2 {print $3}'); DISK_TOTAL=$(df -h / | awk 'NR==2 {print $2}'); DISK_FREE=$(df -h / | awk 'NR==2 {print $4}')
 DISK_PERC=$(df / | awk 'NR==2 {print $5}' | tr -d '%')
 
-# --- Функции отрисовки ---
 draw_bar() {
     local perc=$1
     local filled=$(( perc * CONTENT_WIDTH / 100 ))
@@ -111,7 +98,6 @@ print_resource_line() {
     printf "${BLUE}%-18s${GREEN}%s%s%s${NC}\n" "$label" "$info" "$padding" "$total"
 }
 
-# --- ВЫВОД ---
 clear
 printf "${BLUE}%-18s${GREEN}%s${NC}\n" "Logged as:" "$USER_HOST"
 printf "${BLUE}%-18s${GREEN}%s${NC}\n" "OS:" "$OS_INFO"
