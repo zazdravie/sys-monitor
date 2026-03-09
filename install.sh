@@ -5,14 +5,13 @@ set -Eeuo pipefail
 GITHUB_USER="zazdravie"
 REPO_NAME="sys-monitor"
 SCRIPT_NAME="sys.sh"
-# Прямая ссылка на raw-файл
 RAW_URL="https://raw.githubusercontent.com/${GITHUB_USER}/${REPO_NAME}/main/${SCRIPT_NAME}"
 
-echo "--- Установка System Monitor ---"
+echo -e "\033[0;34m--- Установка System Monitor ---\033[0m"
 
 # 1. Проверка наличия curl
 if ! command -v curl >/dev/null 2>&1; then
-    echo "[ERR] Для установки нужен curl. Установите его: sudo apt install curl"
+    echo -e "\033[0;31m[ERR]\033[0m Для установки нужен curl. Установите его: sudo apt install curl"
     exit 1
 fi
 
@@ -22,17 +21,18 @@ echo "📥 Загрузка скрипта..."
 if curl -sSL "$RAW_URL" -o "$TEMP_FILE"; then
     chmod +x "$TEMP_FILE"
     
-    # 3. Запуск скрипта (он сам скопирует себя куда нужно)
+    # 3. Запуск встроенного инсталлера
     echo "⚙️  Настройка системы..."
-    "$TEMP_FILE"
+    # Теперь мы просто вызываем скачанный файл с флагом --install
+    "$TEMP_FILE" --install
     
     # 4. Самоочистка
     rm -f "$TEMP_FILE"
     echo "--------------------------------"
-    echo "✅ Установка завершена!"
-    echo "Теперь вы можете использовать команду: s"
+    echo -e "\033[0;32m✅ Все готово!\033[0m"
+    echo "Используйте команду: s"
 else
-    echo "[ERR] Не удалось скачать скрипт. Проверьте интернет или имя ветки (main/master)."
+    echo -e "\033[0;31m[ERR]\033[0m Не удалось скачать скрипт."
     rm -f "$TEMP_FILE"
     exit 1
 fi
