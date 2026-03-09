@@ -8,7 +8,6 @@
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.sh | bash
-
 ```
 
 ### 🛠 Управление и флаги
@@ -33,3 +32,4 @@ curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.s
 ### 📦 Требования
 
 Минималистичный стек: `bash`, `curl`, `awk`, `sed`, `grep`, `free`, `df`. Работает «из коробки» на большинстве дистрибутивов.
+
