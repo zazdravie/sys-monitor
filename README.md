@@ -1,8 +1,8 @@
 # 🚀 System Monitor (s)
 
-> Минималистичный и мощный мониторинг ресурсов для Linux/WSL.
+ Минималистичный и мощный мониторинг ресурсов для Linux/WSL.
 
-<details>
+><details>
   <summary>📸 Посмотреть скриншот интерфейса</summary>
   <br>
   <img src="https://github.com/zazdravie/sys-monitor/blob/main/screenshot.png?raw=true" alt="System Monitor Screenshot" width="800">
@@ -49,4 +49,5 @@ curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.s
 * **Инструменты:** `bash`, `awk`, `docker` (для отображения статуса контейнеров).
 
 ---
+
 
