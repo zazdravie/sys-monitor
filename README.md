@@ -2,7 +2,11 @@
 
 > Минималистичный и мощный мониторинг ресурсов для Linux/WSL.
 
-![System Monitor Screenshot](https://github.com/zazdravie/sys-monitor/blob/main/screenshot.png?raw=true)
+<details>
+  <summary>📸 Посмотреть скриншот интерфейса</summary>
+  <br>
+  <img src="https://github.com/zazdravie/sys-monitor/blob/main/screenshot.png?raw=true" alt="System Monitor Screenshot" width="800">
+</details>
 
 
 ## 🔥 Ключевые особенности
@@ -45,3 +49,4 @@ curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.s
 * **Инструменты:** `bash`, `awk`, `docker` (для отображения статуса контейнеров).
 
 ---
+
