@@ -3,14 +3,10 @@
 > Минималистичный и мощный мониторинг ресурсов для Linux/WSL.
 
 <details>
-<summary>📸 Посмотреть скриншот интерфейса</summary>
-
-
-
-
-
-<img src="[https://raw.githubusercontent.com/zazdravie/sys-monitor/main/screenshot.png](https://www.google.com/search?q=https://raw.githubusercontent.com/zazdravie/sys-monitor/main/screenshot.png](https://github.com/zazdravie/sys-monitor/blob/main/screenshot.png?raw=true))" alt="System Monitor Screenshot" width="800">
-</details>
+  <summary>📸 Посмотреть скриншот интерфейса</summary>
+  <br>
+  <img src="https://github.com/zazdravie/sys-monitor/blob/main/screenshot.png?raw=true" alt="System Monitor Screenshot" width="800">
+</details
 
 ## 🔥 Ключевые особенности
 
@@ -51,4 +47,5 @@ curl -sSL https://raw.githubusercontent.com/zazdravie/sys-monitor/main/install.s
 
 * **ОС:** Linux или WSL2 (Ubuntu, Debian, CentOS и др.).
 * **Инструменты:** `bash`, `awk`, `docker`, `curl`.
+
 
