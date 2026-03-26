@@ -116,7 +116,7 @@ DOCKER_ACT=$(docker ps -q 2>/dev/null | wc -l)
 printf "${BLUE}%-18s${GREEN}Docker: ${NC}%-s act. ${BLUE}| ${GREEN}Net: ${NC}%s\n" "Activity:" "$DOCKER_ACT" "$NET_OUT"
 
 printf "${BLUE}%-18s${NC}" "Services:"
-systemctl is-active --quiet ufw 2>/dev/null && printf "${GREEN}▲ UFW${NC}" || printf "${RED}▼ UFW${NC}"
+grep -qi "^ENABLED=yes" /etc/ufw/ufw.conf 2>/dev/null 2>/dev/null && printf "${GREEN}▲ UFW${NC}" || printf "${RED}▼ UFW${NC}"
 printf ", "
 if systemctl is-active --quiet caddy 2>/dev/null || (command -v docker >/dev/null && docker ps --format '{{.Names}}' 2>/dev/null | grep -qi "caddy"); then
     printf "${GREEN}▲ Caddy${NC}"
